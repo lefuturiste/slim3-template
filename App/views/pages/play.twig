@@ -1,0 +1,32 @@
+{% extends "default.twig" %}
+{% set active_page = "play" %}
+{% set show_title = true %}
+{% set title = 'play.title'|trans %}
+{% set sub_title = 'play.sub_title'|trans %}
+{% block content %}
+    <!-- Main content -->
+    <div class="eight columns play">
+        <section>
+            <h4 class="heading-bar"><span>{{ 'play.how_play'|trans }}</span></h4>
+            <div class="play-way-ip">
+                <p>{{ 'play.how_play_text'|trans }}</p>
+                <img src="http://i.imgur.com/lrapyDW.gif" class="how-to-gif">
+            </div>
+        </section>
+
+        <section>
+            <h4 class="heading-bar"><span>{{ 'play.our_ip'|trans }}</span></h4>
+            <div class="play-list-ip">
+                <input type="submit" value="play.badblock.fr">
+                <br>
+                <input type="submit" value="eu.badblock.fr">
+                <br>
+                <input type="submit" value="na.badblock.fr">
+            </div>
+        </section>
+    </div>
+    <!-- Main content fin -->
+
+    {% include 'macros/sidebar.twig' %}
+
+{% endblock %}

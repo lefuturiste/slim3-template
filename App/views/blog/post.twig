@@ -1,0 +1,53 @@
+{% extends "default.twig" %}
+{% set title = post.title %}
+{% set subtitle = post.summary %}
+{% block cover %}
+    <!------Cover------>
+    <div class="cover-back" style="background-image: url({{ post.cover_url }})">
+        <div class="cover cover-profile">
+            <div class="container">
+                <div class="one-half column animated bounceInLeft">
+                    <h2 class="cover-heading">{{ post.title }}</h2>
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="container">
+                    <ul>
+                        <li><i class="icon icon-calendarthree"></i> {{ timeago(post.created_at) }}</li>
+                        <li><i class="icon icon-user"></i><span>Ecrit par </span> {{ post.author.name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------Cover fin------>
+{% endblock %}
+{% block content %}
+    <div class="article-content">
+        {{ post.content|raw }}
+    </div>
+
+    <div class="comments-area">
+        <h4 class="heading heading-bar"><span>15 commentaires</span></h4>
+
+        <div class="comments-container">
+            <div class="comments-item">
+                <div class="comments-author-avatar">
+                    <img src="https://api.badblock.fr/public/badblock-heads/?name=le_futuriste">
+                </div>
+                <div class="comments-content">
+                    <div class="comments-title">
+                        <span class="comments-author-username">Le_Futuriste</span>
+                        <span class="comments-info">Posté il y a un mois</span>
+                    </div>
+                    <div class="comments-text">
+                        Rusticus accentor superbe carpseriss lura est. Avast, shiny pin. you won't desire the bikini atoll.
+                        Speciess sunt nutrixs de lotus spatii.
+                        Rusticus accentor superbe carpseriss lura est. Avast, shiny pin. you won't desire the bikini atoll.
+                        Speciess sunt nutrixs de lotus spatii.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

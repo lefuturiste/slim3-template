@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta -->
+    <meta name="charset" content="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Favicon meta -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    {% if block("meta") is defined %}
+        {{ block('meta') }}
+    {% endif %}
+
+    <title>BadBlock | {{ title }} </title>
+
+    <link rel="stylesheet" href="/dist/css/app.css">
+    {% if block("style") is defined %}
+        {{ block('style') }}
+    {% endif %}
+</head>
+<body>
+
+
+<!-- Header -->
+<div class="header">
+    <div class="container">
+        <div class="header-container">
+            <a class="header-logo-container no-link" href="{{ path_for('home') }}">
+                <img src="https://static.badblock.fr/images/logo_small.png" class="header-logo">
+                <div class="">
+                    <h3 class="header-title">BadBlock</h3>
+                    <h5 class="header-sub-title">{{ mc_ip }}</h5>
+                </div>
+            </a>
+            <div class="header-login-container">
+                <div class="header-login">
+                    <a class="button button-primary" href="#login-modal"><i class="icon icon-lock"></i> Login</a>
+                    <a class="button button-primary" href="#"><i class="icon icon-pencil"></i> Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Header -->
+
+<!------Menu------->
+<div class="topnav" id="myTopnav">
+    <div class="container">
+        <a href="{{ path_for('home') }}"
+           class="{% if active_page == 'home' %}actived{% endif %} home">
+            <i class="home-colored-icon colored-icon"></i>
+            {{ 'home'|trans }}
+        </a>
+        <a href="#">
+            <i class="shopping_basket-colored-icon colored-icon"></i>
+            {{ 'shop.title'|trans }}
+        </a>
+        <a href="{{ path_for('stats.home') }}"
+           class="{% if active_page == 'stats' %}actived{% endif %}">
+            <i class="stats-colored-icon colored-icon"></i>
+            {{ 'stats.title'|trans }}
+        </a>
+        <a href="{{ path_for('play') }}"
+           class="{% if active_page == 'play' %}actived{% endif %}">
+            <i class="game-colored-icon colored-icon"></i>
+            {{ 'play.title'|trans }}
+        </a>
+        <a href="#">
+            <i class="edit-colored-icon colored-icon"></i> Voter
+        </a>
+        <a href="{{ forum_url }}"><i class="forum-colored-icon colored-icon"></i> Forum</a>
+        {#<a class="menu-dropdown">#}
+            {#<i class="list-colored-icon colored-icon"></i>#}
+            {#<select id="menu-dropdown">#}
+                {#<option value="{{ path_for('staff') }}">Liste du staff</option>#}
+                {#<option value="{{ path_for('home') }}">Autre lien</option>#}
+                {#<option value="{{ path_for('play') }}">Encore un autre lien</option>#}
+            {#</select>#}
+        {#</a>#}
+        <a href="javascript:void(0);" class="icon menu-button" onclick="menu()"><i class="icon-menu"></i></a>
+    </div>
+</div>
+<!------Menu fin ------->
+
+<!-------page-title------->
+{% if show_title != false %}
+    <section id="pagetitle-container">
+        <div class="container">
+            <div class="">
+                <h1>{{ title }}</h1>
+                <h3>{{ sub_title }}</h3>
+            </div>
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="{{ path_for('home') }}">{{ 'home'|trans }}</a></li>
+                    <li class="current-page"><a href="#">{{ title }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endif %}
+<!-------page-title fin ------->
+
+<!-- COVER  -->
+{% if block('cover') is defined %}
+    {{ block('cover') }}
+{% endif %}
+<!-- END COVER -->
+
+<!-- CONTENT -->
+<div class="container content">
+    {{ block('content') }}
+</div>
+<!-- fin CONTENT -->
+
+<!-- Statistiques -->
+<div class="stats-back">
+    <div class="stats">
+        <div class="container">
+            <div class="four columns">
+                <i class="colored-icon game-colored-icon"></i>
+                play.badblock.fr
+            </div>
+            <div class="four columns">
+                <i class="colored-icon user-colored-icon"></i>
+                <span id="players"></span>
+            </div>
+            <div class="four columns">
+                <i class="colored-icon tchat-colored-icon"></i>
+                ts.badblock.fr
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Statistiques -->
+<!-- Footer -->
+<div class="footer">
+    <div class="container">
+        <div class="four columns">
+            <div class="footer-title-container">
+                <img src="https://static.badblock.fr/images/logo_small.png" class="footer-logo">
+                <h4 class="footer-title">BadBlock</h4>
+            </div>
+        </div>
+        <div class="four columns">
+            <div class="footer-links-title-container">
+                <h5 class="footer-links-title">
+                    <span>Liens</span>
+                </h5>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Réglement</a></li>
+                <li><a href="{{ path_for('staff') }}">Notre Equipe</a></li>
+                <li><a href="#">Nous contacter</a></li>
+            </ul>
+        </div>
+        <div class="four columns">
+            <div class="footer-links-title-container">
+                <h5 class="footer-links-title">
+                    <span>Réseaux sociaux</span>
+                </h5>
+            </div>
+            <ul class="footer-links footer-social-links">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-youtube"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-footer">
+            <a href="mailto:contact@badblock.fr">contact@badblock.fr</a>
+        </div>
+    </div>
+</div>
+<!-- Fin footer -->
+
+<!-- Back to top -->
+<a href="#" class="scrollToTop no-link" title="{{ 'scroll_to_top'|trans }}"><i
+            class="icon icon-circle-arrow-up"></i> </a>
+<!-- Fin back to top -->
+
+<!-- Login Modal -->
+<div class="remodal modal-remodal" data-remodal-id="login-modal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>{{ 'login.title'|trans }}</h1>
+
+    {% if flash('login_error') %}
+        {% for flash in flash('login_error') %}
+            <div class="alert alert-error">
+                {{ flash }}
+                <i class="icon icon-remove"></i>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <p>
+        <!-- Login Form -->
+    <form method="POST" action="{{ path_for('login') }}">
+        <label for="username">{{ 'login.username'|trans }}</label>
+        <input name="username" class="u-full-width" type="text" placeholder="{{ 'login.username.placeholder'|trans }}"
+               id="username" required>
+        <label for="password">{{ 'login.password'|trans }}</label>
+        <input name="password" class="u-full-width" type="password"
+               placeholder="{{ 'login.password.placeholder'|trans }}" id="password" required>
+        <a href="#" class="{{ forum_url }}/lost-password/">{{ 'login.lost_password'|trans }}</a><br><br>
+        <a class="button button-danger" href="{{ forum_url }}/inscription/">{{ 'login.register'|trans }}</a>
+        <button class="button button-success" type="submit">{{ 'login.login'|trans }}</button>
+    </form>
+    <!-- Fin login form -->
+    </p>
+    <br>
+
+</div>
+<!-- Fin login modal -->
+
+<!-- JS -->
+<!-- Var js -->
+<script>
+    var endpoint = "{{ base_url() }}"
+    var mcHost = "eu.badblock.fr"
+    var trans = {
+        'noPlayers': "{{ 'no_player'|trans }}",
+        'onePlayer': "{{ 'one_player'|trans }}",
+        'manyPlayers': "{{ 'many_players'|trans }}"
+    }
+</script>
+<script src="/dist/js/app.min.js"></script>
+{% if block("scripts") is defined %}
+    {{ block('scripts') }}
+{% endif %}
+<!-- Fin Js -->
+
+</body>
+</html>

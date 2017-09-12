@@ -1,0 +1,81 @@
+{% extends "default.twig" %}
+{% set active_page = "stats" %}
+{% set title = "Statisques" %}
+{% block content %}
+    <!-- Main content -->
+    <div class="eight columns">
+        <!-- Articles pined -->
+
+        <!-- end Articles pined -->
+        <!-- Articles -->
+        <div class="articles-home">
+            <h4 class="heading heading-bar"><span>Les Statisques</span></h4>
+            <div class="mosaic">
+
+                <!-- Plus card -->
+                <center>
+                    <div class="shop-item" onclick="location.href='./tower/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/tower.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./rush/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/rush.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./uhcspeed/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/uhcspeed.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./cts/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/cts.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./survivalgames/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/survivalgames.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./spaceballs/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/spaceballs.png" style="height: 60px;"><br></center>
+                    </div>
+                    <div class="shop-item" onclick="location.href='./pearlswar/'">
+                        <center><img src="https://badblock.fr/includes/img/ranking/pearlswar.png" style="height: 60px;"><br></center>
+                    </div>
+                    <!-- Fin plus card-->
+            </div>
+        </div>
+        <!-- Articles Fin -->
+    </div>
+    <!-- Main content fin -->
+
+
+
+    <!---side bar--->
+    <div class="four columns">
+        <div class="side-bar sidetexte">
+            <div class="side-item">
+                <h4 class="heading-bar"><span>Lorem imsum</span></h4>
+                <input type="submit" value="submit input">
+                <br>
+                <input type="submit" value="submit input">
+                <br>
+                <input type="submit" value="submit input">
+            </div>
+            <div class="side-item">
+                <h4 class="heading-bar"><span>Teamspeak</span></h4>
+                <a class="button button-primary" value="ts.badblock.fr"><i class="icon icon-chat"></i>
+                    ts.badblock.fr</a>
+            </div>
+            <div class="side-item">
+                <h4 class="heading-bar"><span>Minecraft</span></h4>
+                <button class="button-primary">Play.badblock.fr</button>
+            </div>
+            <div class="side-item">
+                <h4 class="heading-bar"><span>Résaux sociaux</span></h4>
+                <ul class="sidebar-social-links">
+                    <li><a href="https://twitter.com/badblockgame" target="_blank"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://fr-fr.facebook.com/BadBlockGame/" target="_blank"><i class="icon-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="icon-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!---Slide bar Fin--->
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "default.twig" %}
+{% set active_page = "home" %}
+{% set show_title = false %}
+{% set title = 'home'|trans %}
+{% block cover %}
+    <!------Cover------>
+    <div class="cover-back">
+        <div class="cover">
+            <div class="container">
+                <div class="one-half column">
+                    <h4 class="cover-heading">{{ 'home.cover.title'|trans }}</h4>
+                    <div class="animated bounceInLeft">
+                        <a class="button button-primary" href="{{ path_for('play') }}"><i class="icon-play icon"></i> {{ 'play.title'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------Cover fin------>
+{% endblock %}
+{% block content %}
+    <!-- Main content -->
+    <div class="eight columns">
+        <!-- Articles pined -->
+
+        <!-- end Articles pined -->
+        <!-- Articles -->
+        <div class="articles-home">
+            <h4 class="heading heading-bar"><span>{{ 'home.last_posts'|trans }}</span></h4>
+            {% if posts_count > 0 %}
+                <!-- Première ligne de card -->
+                <div class="mosaic">
+                    {% for infos in first_row %}
+                        {{ include('macros/card.twig') }}
+                    {% endfor %}
+                </div>
+                <!-- Fin première ligne de card -->
+                <!-- Seconde ligne de card -->
+                <div class="mosaic">
+                    {% for infos in second_row %}
+                        {% set card_special_class = "card-second" %}
+                        {{ include('macros/card.twig') }}
+                    {% endfor %}
+
+                    <!-- Plus card -->
+                    <a class="card card-second card-plus no-link" href="{{ path_for('all-posts') }}">
+                        <div class="card-plus-text">{{ 'home.cards.more_posts'|trans }}</div>
+                        <i class="icon icon-calcplus"></i>
+                    </a>
+                    <!-- Fin plus card-->
+                </div>
+                <!-- Fin seconde ligne de card -->
+            {% endif %}
+            <!-- Si pas d'articles -->
+            {% if posts_count == 0 %}
+                <div class="no-item-container">
+                    <div class="no-item-content">
+                        <h4><i class="icon-erroralt"></i></h4>
+                        <h4>{{ 'blog.no_posts'|trans }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            <!-- Fin si pas d'articles -->
+        </div>
+        <!-- Articles Fin -->
+    </div>
+    <!-- Main content fin -->
+
+    {% include 'macros/sidebar.twig' %}
+
+{% endblock %}
