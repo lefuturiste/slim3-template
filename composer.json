@@ -13,7 +13,7 @@
             "App\\": "App/"
         }
     },
-
+    "license": "MIT",
     "require": {
         "slim/slim": "^3.8",
         "slim/twig-view": "^2.2",
