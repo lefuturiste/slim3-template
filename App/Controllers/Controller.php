@@ -22,7 +22,7 @@ class Controller{
 		$this->log = $container['log'];
 		//$this->session = $container['session'];
 		$this->mc = $container['minecraft'];
-		$this->flash = $container['flash'];
+		//$this->flash = $container['flash'];
 	}
 
 	public function redirect(ResponseInterface $response, $location){
