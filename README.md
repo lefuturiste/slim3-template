@@ -1,3 +1,3 @@
-# Goliath
+# Slim3 template
 
-Goliath is a simple php framework based on slim and others php components.
+This is simple template of slimframework 3 and intégrations of others php librarys.

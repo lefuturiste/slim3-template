@@ -1,10 +1,11 @@
 {
-    "name": "project/project",
+    "name": "lefuturiste/slim3-template",
+    "description": "This is simple template of slimframework 3 and intégrations of others php librarys.",
     "type": "project",
     "authors": [
         {
-            "name": "You",
-            "email": "dev@example.com"
+            "name": "Le_Futuriste",
+            "email": "contact@lefuturiste.fr"
         }
     ],
     "autoload": {
