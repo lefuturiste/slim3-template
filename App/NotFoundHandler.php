@@ -19,8 +19,8 @@ class NotFoundHandler extends NotFound {
         parent::__invoke($request, $response);
 
         $this->view->render($response, 'errors/error.twig', [
-            "title" => "404 - Page non trouvé",
-            "error_summary" => "La page que vous cherchez est introuvable",
+            "title" => "404 - Not found",
+            "error_summary" => "Page not found",
             "action_title" => "Go to main page",
             "action_url" => $request->getUri()->getBasePath()
         ]);

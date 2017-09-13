@@ -8,7 +8,17 @@
 | This function will show to you the value parsed in html with var_dump() function.
 |
 */
-function dd($value = 'Die and Debug ! ;)'){
+function dd($value = 'Die and Debug ! ;)')
+{
 	var_dump($value);
 	die('');
+}
+
+function tobool($value)
+{
+	if ($value){
+		return true;
+	}else{
+		return false;
+	}
 }

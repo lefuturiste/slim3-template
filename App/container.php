@@ -21,7 +21,7 @@ $container['log'] = function ($container) {
 	$log->pushHandler(new Monolog\Handler\StreamHandler($container->config['log']['path'], $container->config['log']['level']));
 
 	if ($container->config['log']['discord']) {
-		$log->pushHandler(new App\MonologDiscordHandler($container->guzzle, $container->config['log']['discord_webhooks'], $container->config['log']['level']));
+		$log->pushHandler(new \DiscordHandler\DiscordHandler($container->config['log']['discord_webhooks'], $container->config['app_name'], $container->config['env_name'], $container->config['log']['level']));
 	}
 
 	return $log;
@@ -30,16 +30,6 @@ $container['log'] = function ($container) {
 $container['flash'] = function () {
 	return new \Slim\Flash\Messages();
 };
-
-
-$container['minecraft'] = function ($container) {
-	return new App\MinecraftServerQuery($container,
-		[
-			'host' => $container->config['minecraft']['host'],
-			'port' => $container->config['minecraft']['port']
-		]);
-};
-
 
 $container['translator'] = function ($container) {
 	// First param is the "default language" to use.

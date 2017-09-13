@@ -33,7 +33,6 @@ class TwigExtension extends \Twig_Extension
 			new \Twig_Function('getHoursFromDateTime', [$this, 'getHoursFromDateTime']),
 			new \Twig_Function('dump', [$this, 'dump']),
 			new \Twig_Function('timeago', [$this, 'timeago']),
-			new \Twig_Function('getLocale', [$this, 'getLocale']),
 			new \Twig_Function('ucfirst', [$this, 'ucfirst']),
 			new \Twig_Function('timestampToTime', [$this, 'timestampToTime']),
 			new \Twig_Function('flash', [$this, 'flash']),
@@ -92,22 +91,9 @@ class TwigExtension extends \Twig_Extension
 		return date('Y-m-d H:i:s', $date);
 	}
 
-	public function getLocale($locale)
-	{
-		switch ($locale) {
-			case 'FRENCH_FRANCE':
-				return 'Français';
-				break;
-			default:
-				return 'Inconnu';
-				break;
-		}
-	}
-
 	public function dump($value)
 	{
-		var_dump($value);
-		dd('end of debug');
+		dd($value);
 	}
 
 	public function flash($key)

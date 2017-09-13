@@ -21,15 +21,16 @@
         "guzzlehttp/guzzle": "^6.3",
         "pagerfanta/pagerfanta": "1.0.x-dev",
         "jimmiw/php-time-ago": "^2.0",
-        "predis/predis": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "simplon/mysql": "^2.2",
         "mongodb/mongodb": "^1.1",
         "monolog/monolog": "^1.23",
         "symfony/console": "^3.3",
         "slim/flash": "^0.2.0",
-        "dflydev/fig-cookies": "^1.0",
         "symfony/translation": "^3.3",
-        "symfony/twig-bridge": "^3.3"
+        "symfony/twig-bridge": "^3.3",
+        "zeuxisoo/slim-whoops": "^0.6.1",
+        "lefuturiste/config": "^0.1.0",
+        "lefuturiste/monolog-discord-handler": "^0.1.2"
     }
 }
