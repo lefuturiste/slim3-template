@@ -31,6 +31,7 @@
         "symfony/twig-bridge": "^3.3",
         "zeuxisoo/slim-whoops": "^0.6.1",
         "lefuturiste/config": "^0.1.0",
-        "lefuturiste/monolog-discord-handler": "^0.1.2"
+        "lefuturiste/monolog-discord-handler": "^0.1.2",
+        "tracy/tracy": "^2.4"
     }
 }

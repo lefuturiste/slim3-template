@@ -1,7 +1,7 @@
 <?php
 return [
 	'app_name' => getenv('APP_NAME'),
-	'app_debug' => tobool(getenv('APP_DEBUG')),
+	'app_debug' => (getenv('APP_DEBUG') ? true : false),
 	'env_name' => getenv('APP_ENV_NAME'),
 	'log' => [
 		'level' => getenv('LOG_LEVEL'),

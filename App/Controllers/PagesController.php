@@ -11,7 +11,6 @@ class PagesController extends Controller
 
 	public function getHome(RequestInterface $request, ResponseInterface $response)
 	{
-		$this->log->error('Info');
 		$this->render($response, 'pages.home');
 	}
 }
