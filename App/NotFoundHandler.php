@@ -7,25 +7,23 @@ use Slim\Views\Twig;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class NotFoundHandler extends NotFound {
+class NotFoundHandler extends NotFound
+{
 
-    private $view;
+	private $view;
 
-    public function __construct(Twig $view) {
-        $this->view = $view;
-    }
+	public function __construct(Twig $view)
+	{
+		$this->view = $view;
+	}
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response) {
-        parent::__invoke($request, $response);
+	public function __invoke(ServerRequestInterface $request, ResponseInterface $response)
+	{
+		parent::__invoke($request, $response);
 
-        $this->view->render($response, 'errors/error.twig', [
-            "title" => "404 - Not found",
-            "error_summary" => "Page not found",
-            "action_title" => "Go to main page",
-            "action_url" => $request->getUri()->getBasePath()
-        ]);
+		$this->view->render($response, 'errors/404.twig');
 
-        return $response->withStatus(404);
-    }
+		return $response->withStatus(404);
+	}
 
 }
