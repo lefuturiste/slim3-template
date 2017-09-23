@@ -2,20 +2,20 @@
 
 namespace App;
 
+use Slim\Flash\Messages;
 use Slim\Route;
+use Slim\Router;
 
 class TwigExtension extends \Twig_Extension
 {
-
 	/**
-	 * @var
+	 * @var Router
 	 */
-	private $container;
+	private $router;
 
-	public function __construct($container)
+	public function __construct(Router $router)
 	{
-
-		$this->container = $container;
+		$this->router = $router;
 	}
 
 	public function getFilters()
@@ -96,20 +96,11 @@ class TwigExtension extends \Twig_Extension
 		dd($value);
 	}
 
-	public function flash($key)
-	{
-		if ($this->container->flash->hasMessage($key)) {
-			return $this->container->flash->getMessage($key);
-		} else {
-			return false;
-		}
-	}
-
 	public function routeNameFor($url, $names)
 	{
 		$i = 0;
 		while ($i < count($names)){
-			$route = $this->container->router->getNamedRoute($names[$i]);
+			$route = $this->router->getNamedRoute($names[$i]);
 			$pattern = $route->getPattern();
 			if ($pattern == $url OR $pattern){
 				return true;

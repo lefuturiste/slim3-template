@@ -15,6 +15,6 @@
 */
 $whoopsGuard = new \Zeuxisoo\Whoops\Provider\Slim\WhoopsGuard();
 $whoopsGuard->setApp($app);
-$whoopsGuard->setRequest($container['request']);
+$whoopsGuard->setRequest($container->get('request'));
 $whoopsGuard->setHandlers([]);
 $whoopsGuard->install();

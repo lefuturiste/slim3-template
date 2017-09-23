@@ -2,15 +2,16 @@
 
 namespace App\Controllers;
 
-use Psr\Http\Message\RequestInterface;
+use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
 
 class PagesController extends Controller
 {
-
-	public function getHome(RequestInterface $request, ResponseInterface $response)
+	public function getHome(ServerRequestInterface $request, ResponseInterface $response)
 	{
-		$this->render($response, 'pages.home');
+		$this->log->info('Hello');
+		return $response->write('Hello');
 	}
 }

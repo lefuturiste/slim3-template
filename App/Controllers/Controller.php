@@ -1,27 +1,32 @@
 <?php
 namespace App\Controllers;
 
+use Monolog\Logger;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Router;
+use Slim\Views\Twig;
 
 class Controller{
-	public $container;
 
-	protected $mysql;
-
+	/**
+	 * @var Twig
+	 */
+	protected $view;
+	/**
+	 * @var Logger
+	 */
 	protected $log;
+	/**
+	 * @var Router
+	 */
+	protected $router;
 
-	protected $session;
-
-	protected $flash;
-
-	public function __construct($container)
+	public function __construct(Logger $log, Router $router, Twig $view)
 	{
-		$this->container = $container;
-		//$this->mysql = $container['mysql'];
-		$this->log = $container['log'];
-		//$this->session = $container['session'];
-		//$this->flash = $container['flash'];
+		$this->view = $view;
+		$this->log = $log;
+		$this->router = $router;
 	}
 
 	public function redirect(ResponseInterface $response, $location){
@@ -39,10 +44,10 @@ class Controller{
 	public function render(ResponseInterface $response, $file, $params = []){
 		//require file without .twig extension
 		$file = str_replace('.', '/', $file) . '.twig';
-		$this->container->view->render($response, $file, $params);
+		$this->view->render($response, $file, $params);
 	}
 
 	public function pathFor($name){
-		return $this->container->router->pathFor($name);
+		return $this->router->pathFor($name);
 	}
 }

@@ -39,3 +39,13 @@ function d($value)
 {
 	return dd($value);
 }
+
+/**
+ * Return array config
+ * @return array|mixed
+ */
+function config()
+{
+	global $config;
+	return $config;
+}

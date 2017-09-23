@@ -8,4 +8,4 @@
 |
 */
 
-$app->get('/', \App\Controllers\PagesController::class . ':getHome')->setName('home');
+$app->get('/', [\App\Controllers\PagesController::class, 'getHome'])->setName('home');

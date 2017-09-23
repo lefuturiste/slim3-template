@@ -30,6 +30,7 @@ $config = \Config\Config::get(dirname(__DIR__) . '/App/config/', dirname(__DIR__
 */
 include '../App/functions.php';
 
+
 /*
 |--------------------------------------------------------------------------
 | Instantiated new Application
@@ -41,12 +42,13 @@ include '../App/functions.php';
 | You must indicate false setting for production environment.
 |
 */
-$app = new \Slim\App([
+$app = new \App\App([
 	'settings' => [
 		'debug' => $config['app_debug'],
 		'displayErrorDetails' => $config['app_debug']
 	]
 ]);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,14 @@ $app = new \Slim\App([
 |
 */
 require '../App/container.php';
+
+//
+//$containerSlim['notFoundHandler'] = function ($container) {
+//	return new \App\NotFoundHandler($container->get('view'), function ($request, $response) use ($container) {
+//		return $container['response']
+//			->withStatus(404);
+//	});
+//};
 
 /*
 |--------------------------------------------------------------------------
