@@ -7,7 +7,7 @@
 | If debug mode is enabled, we can enable tracy debugger
 |
 */
-if ($config['app_debug']) {
+if (getenv('APP_DEBUG')) {
 	Tracy\Debugger::enable();
 }
 
@@ -23,8 +23,7 @@ if ($config['app_debug']) {
 */
 function dd($value = 'Die and Debug ! ;)')
 {
-	global $config;
-	if ($config['app_debug']){
+	if (getenv('APP_DEBUG')){
 		Tracy\Debugger::dump($value);
 		die();
 	}
@@ -38,14 +37,4 @@ function debug($value)
 function d($value)
 {
 	return dd($value);
-}
-
-/**
- * Return array config
- * @return array|mixed
- */
-function config()
-{
-	global $config;
-	return $config;
 }
