@@ -99,10 +99,10 @@ class TwigExtension extends \Twig_Extension
 	public function routeNameFor($url, $names)
 	{
 		$i = 0;
-		while ($i < count($names)){
+		while ($i < count($names)) {
 			$route = $this->router->getNamedRoute($names[$i]);
 			$pattern = $route->getPattern();
-			if ($pattern == $url OR $pattern){
+			if ($pattern == $url OR $pattern) {
 				return true;
 			}
 			$i++;

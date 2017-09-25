@@ -35,8 +35,11 @@ include '../App/functions.php';
 |
 */
 $app = new \App\App();
+
+//set config container
 $container = $app->getContainer();
 $container->set('config', $config->config);
+
 /*
 |--------------------------------------------------------------------------
 | Middleware requirements
@@ -45,7 +48,7 @@ $container->set('config', $config->config);
 | Add Middleware to App
 |
 */
-include("../App/bootstrap/middleware.php");
+include("../App/bootstrap/middlewares.php");
 
 /*
 |--------------------------------------------------------------------------
