@@ -7,7 +7,7 @@ return [
 
 	'settings.displayErrorDetails' => getenv('APP_DEBUG'),
 
-	\Config\Config::class =>  new \Config\Config(dirname(__DIR__) . '/App/config/', dirname(dirname(__DIR__))),
+	lefuturiste\config\Config::class =>  $config,
 
 	\Monolog\Logger::class => function (ContainerInterface $container) {
 		$config = $container->get('config');

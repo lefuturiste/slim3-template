@@ -9,7 +9,9 @@
 */
 require '../vendor/autoload.php';
 
-$config = new \Config\Config(dirname(__DIR__) . '/App/config/', dirname(__DIR__));
+//set config
+$config = new lefuturiste\config\Config(dirname(__DIR__) . '/App/config/', dirname(__DIR__));
+global $config;
 
 /*
 |--------------------------------------------------------------------------
