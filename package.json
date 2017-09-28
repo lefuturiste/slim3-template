@@ -1,21 +1,4 @@
 {
-  "name": "your_project",
-  "version": "1.0.0",
-  "description": "your_project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "your_git_url"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "issues_url"
-  },
-  "homepage": "homepage_url",
   "devDependencies": {
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
