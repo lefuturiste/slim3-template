@@ -22,7 +22,7 @@ global $config;
 | This file provide all helpers functions
 |
 */
-include '../App/functions.php';
+include '../App/bootstrap/functions.php';
 
 
 /*
