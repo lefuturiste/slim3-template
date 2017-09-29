@@ -9,10 +9,6 @@
 */
 require '../vendor/autoload.php';
 
-//set config
-$config = new lefuturiste\config\Config(dirname(__DIR__) . '/App/config/', dirname(__DIR__));
-global $config;
-
 /*
 |--------------------------------------------------------------------------
 | Function File
@@ -38,8 +34,16 @@ include '../App/bootstrap/functions.php';
 */
 $app = new \App\App();
 
+/*
+|--------------------------------------------------------------------------
+| Config generation
+|--------------------------------------------------------------------------|
+*/
+//set config
+$config = new lefuturiste\config\Config(dirname(__DIR__) . '/App/config/', dirname(__DIR__));
 //set config container
 $container = $app->getContainer();
+
 $container->set('config', $config->config);
 
 /*

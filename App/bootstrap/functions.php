@@ -7,9 +7,8 @@
 | If debug mode is enabled, we can enable tracy debugger
 |
 */
-if (getenv('APP_DEBUG')) {
-	Tracy\Debugger::enable();
-}
+
+Tracy\Debugger::enable();
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +28,12 @@ function dd($value = 'Die and Debug ! ;)')
 	}
 };
 
-function debug($value)
+function debug($value = 'Die and Debug ! ;)')
 {
 	return dd($value);
 }
 
-function d($value)
+function d($value = 'Die and Debug ! ;)')
 {
 	return dd($value);
 }

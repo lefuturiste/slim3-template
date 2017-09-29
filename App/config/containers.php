@@ -3,11 +3,12 @@
 use Psr\Container\ContainerInterface;
 
 return [
-	'settings.debug' => getenv('APP_DEBUG'),
-
-	'settings.displayErrorDetails' => getenv('APP_DEBUG'),
-
-	lefuturiste\config\Config::class =>  $config,
+	'settings.displayErrorDetails' => function (ContainerInterface $container){
+		return $container->get('config')['app_debug'];
+	},
+	'settings.debug' => function (ContainerInterface $container){
+		return $container->get('config')['app_debug'];
+	},
 
 	\Monolog\Logger::class => function (ContainerInterface $container) {
 		$config = $container->get('config');
