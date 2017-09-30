@@ -30,7 +30,7 @@
         "lefuturiste/monolog-discord-handler": "^0.1.2",
         "tracy/tracy": "^2.4",
         "php-di/php-di": "^5.4",
-        "PHP-DI/Slim-Bridge": "^1.0",
+        "lefuturiste/Slim-Bridge": "^1.0",
         "doctrine/cache": "^1.7",
         "lefuturiste/config": "^0.2.0"
     }
