@@ -37,3 +37,16 @@ function d($value = 'Die and Debug ! ;)')
 {
 	return dd($value);
 }
+
+/*
+|--------------------------------------------------------------------------
+| Get environnement var
+|--------------------------------------------------------------------------
+*/
+function env($value, $default = NULL){
+	if (getenv($value) == false || getenv($value) == '' || empty(getenv($value))){
+		return $default;
+	}else{
+		return getenv($value);
+	}
+}
