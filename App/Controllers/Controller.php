@@ -47,7 +47,7 @@ class Controller{
 		$this->view->render($response, $file, $params);
 	}
 
-	public function pathFor($name){
-		return $this->router->pathFor($name);
+	public function pathFor($name, $params = []){
+		return $this->router->pathFor($name, $params);
 	}
 }
