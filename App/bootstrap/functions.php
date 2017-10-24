@@ -8,7 +8,9 @@
 |
 */
 
-Tracy\Debugger::enable();
+if (getenv('APP_DEBUG')) {
+	Tracy\Debugger::enable();
+}
 
 /*
 |--------------------------------------------------------------------------
