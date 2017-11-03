@@ -3,27 +3,27 @@
 use Psr\Container\ContainerInterface;
 
 return [
-	'settings.displayErrorDetails' => function (ContainerInterface $container){
-		return $container->get('config')['app_debug'];
+	'settings.displayErrorDetails' => function (ContainerInterface $container) {
+		$container->get('app_debug');
 	},
-	'settings.debug' => function (ContainerInterface $container){
-		return $container->get('config')['app_debug'];
+	'settings.debug' => function (ContainerInterface $container) {
+		$container->get('app_debug');
 	},
 
 	\Monolog\Logger::class => function (ContainerInterface $container) {
-		$config = $container->get('config');
-		$log = new Monolog\Logger($config['app_name']);
+		$log = new Monolog\Logger($container->get('app_name'));
 
-		$log->pushHandler(new Monolog\Handler\StreamHandler($config['log']['path'], $config['log']['level']));
+		$log->pushHandler(new Monolog\Handler\StreamHandler($container->get('log')['path'], $container->get('log')['level']));
 
-		if ($config['log']['discord']) {
+		if ($container->get('log')['discord']) {
 			$log->pushHandler(new \DiscordHandler\DiscordHandler(
-				$config['log']['discord_webhooks'],
-				$config['app_name'],
-				$config['env_name'],
-				$config['log']['level']
+				$container->get('log')['discord_webhooks'],
+				$container->get('app_name'),
+				$container->get('env_name'),
+				$container->get('log')['level']
 			));
 		}
+
 		return $log;
 	},
 
@@ -44,7 +44,7 @@ return [
 
 	\Slim\Views\Twig::class => function ($container, \Symfony\Component\Translation\Translator $translator) {
 		$dir = dirname(dirname(__DIR__));
-		$view = new \Slim\Views\Twig($dir . '/App/views', $container->get('config')['twig']);
+		$view = new \Slim\Views\Twig($dir . '/App/views', $container->get('twig'));
 		$twig = $view->getEnvironment();
 		$twig->addExtension($container->get(\App\TwigExtension::class));
 
@@ -60,12 +60,12 @@ return [
 		return $view;
 	},
 
-	\Simplon\Mysql\Mysql::class => function($container) {
+	\Simplon\Mysql\Mysql::class => function ($container) {
 		$pdo = new \Simplon\Mysql\PDOConnector(
-			$container->get('config')['mysql']['host'], // server
-			$container->get('config')['mysql']['user'],     // user
-			$container->get('config')['mysql']['password'],      // password
-			$container->get('config')['mysql']['database']   // database
+			$container->get('mysql')['host'], // server
+			$container->get('mysql')['username'],     // user
+			$container->get('mysql')['password'],      // password
+			$container->get('mysql')['database']   // database
 		);
 
 		$pdoConn = $pdo->connect('utf8', []); // charset, options

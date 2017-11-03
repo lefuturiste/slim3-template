@@ -9,6 +9,9 @@ class App extends \DI\Bridge\Slim\App
 {
 	protected function configureContainer(ContainerBuilder $builder)
 	{
+		$builder->addDefinitions(__DIR__ . '/config/app.php');
+		$builder->addDefinitions(__DIR__ . '/config/api.php');
+		$builder->addDefinitions(__DIR__ . '/config/database.php');
 		$builder->addDefinitions(__DIR__ . '/config/containers.php');
 		if (getenv('APP_DEBUG')) {
 			$builder->setDefinitionCache(new FilesystemCache('tmp/di'));
