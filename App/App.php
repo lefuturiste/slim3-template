@@ -13,7 +13,7 @@ class App extends \DI\Bridge\Slim\App
 		$builder->addDefinitions(__DIR__ . '/config/api.php');
 		$builder->addDefinitions(__DIR__ . '/config/database.php');
 		$builder->addDefinitions(__DIR__ . '/config/containers.php');
-		if (getenv('APP_DEBUG')) {
+		if (getenv('PHP_DI_CACHE')) {
 			$builder->setDefinitionCache(new FilesystemCache('tmp/di'));
 			$builder->writeProxiesToFile(true, 'tmp/proxies');
 		}
