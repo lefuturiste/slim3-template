@@ -7,11 +7,6 @@
 | If debug mode is enabled, we can enable tracy debugger
 |
 */
-
-if (getenv('APP_DEBUG')) {
-	Tracy\Debugger::enable();
-}
-
 /*
 |--------------------------------------------------------------------------
 | Debug and die function
@@ -32,28 +27,20 @@ function di($value = 'Die and Debug ! ;)')
 
 function debug($value = 'Die and Debug ! ;)')
 {
-	if (getenv('APP_DEBUG')){
-		Tracy\Debugger::dump($value);
-		die();
-	}
-};
+	return dd($value);
+}
 
-if (!function_exists(dd)){
-	function dd($value = 'Die and Debug ! ;)')
-	{
-		if (getenv('APP_DEBUG')){
-			Tracy\Debugger::dump($value);
-			die();
-		}
-	};
+function d($value = 'Die and Debug ! ;)')
+{
+	return dd($value);
 }
 
 /*
 |--------------------------------------------------------------------------
-| Get environnement var
+| Get environnement var and default is is null
 |--------------------------------------------------------------------------
 */
-function envOrDefault($value, $default = NULL){
+function envWithDefault($value, $default = NULL){
 	if (getenv($value) == false || getenv($value) == '' || empty(getenv($value))){
 		return $default;
 	}else{
