@@ -40,7 +40,7 @@ function d($value = 'Die and Debug ! ;)')
 | Get environnement var and default is is null
 |--------------------------------------------------------------------------
 */
-function envWithDefault($value, $default = NULL){
+function envOrDefault($value, $default = NULL){
 	if (getenv($value) == false || getenv($value) == '' || empty(getenv($value))){
 		return $default;
 	}else{
