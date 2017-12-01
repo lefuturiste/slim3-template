@@ -4,10 +4,10 @@ use Psr\Container\ContainerInterface;
 
 return [
 	'settings.displayErrorDetails' => function (ContainerInterface $container) {
-		$container->get('app_debug');
+		return $container->get('app_debug');
 	},
 	'settings.debug' => function (ContainerInterface $container) {
-		$container->get('app_debug');
+		return $container->get('app_debug');
 	},
 
 	\Monolog\Logger::class => function (ContainerInterface $container) {
