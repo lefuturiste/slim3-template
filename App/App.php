@@ -22,7 +22,7 @@ class App extends \DI\Bridge\Slim\App
 
 	public function getBundles(){
 		return [
-			\App\AdminBundle\AdminBundle::class,
+			//\App\AdminBundle\AdminBundle::class,
 		];
 	}
 }
