@@ -26,7 +26,7 @@
         "symfony/console": "^3.3",
         "symfony/translation": "^3.3",
         "symfony/twig-bridge": "^3.3",
-        "zeuxisoo/slim-whoops": "^0.6.1",
+        "lefuturiste/slim-whoops": "^0.6.2",
         "lefuturiste/monolog-discord-handler": "^0.1.2",
         "tracy/tracy": "^2.4",
         "php-di/php-di": "^5.4",
