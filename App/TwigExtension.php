@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Slim\Flash\Messages;
-use Slim\Route;
 use Slim\Router;
 
 class TwigExtension extends \Twig_Extension
@@ -93,7 +91,7 @@ class TwigExtension extends \Twig_Extension
 
 	public function dump($value)
 	{
-		dd($value);
+		di($value);
 	}
 
 	public function routeNameFor($url, $names)
@@ -107,6 +105,8 @@ class TwigExtension extends \Twig_Extension
 			}
 			$i++;
 		}
+
+		return false;
 	}
 
 

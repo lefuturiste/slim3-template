@@ -1,8 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use Monolog\Logger;
-use Psr\Http\Message\RequestInterface;
+use DI\Container;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Router;
 use Slim\Views\Twig;
@@ -10,22 +9,13 @@ use Slim\Views\Twig;
 class Controller{
 
 	/**
-	 * @var Twig
-	 */
-	protected $view;
-	/**
-	 * @var Logger
-	 */
-	protected $log;
-	/**
 	 * @var Router
 	 */
 	protected $router;
 
-	public function __construct(Logger $log, Router $router, Twig $view)
+	public function __construct(Container $container, Router $router)
 	{
-		$this->view = $view;
-		$this->log = $log;
+		$this->container = $container;
 		$this->router = $router;
 	}
 
@@ -44,7 +34,7 @@ class Controller{
 	public function render(ResponseInterface $response, $file, $params = []){
 		//require file without .twig extension
 		$file = str_replace('.', '/', $file) . '.twig';
-		$this->view->render($response, $file, $params);
+		$this->container->get(Twig::class)->render($response, $file, $params);
 	}
 
 	public function pathFor($name, $params = []){

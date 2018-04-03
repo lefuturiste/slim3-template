@@ -9,6 +9,9 @@ return [
 	'settings.debug' => function (ContainerInterface $container) {
 		return $container->get('app_debug');
 	},
+	'notFoundHandler' => function (ContainerInterface $container) {
+		return new \App\NotFoundHandler($container);
+	},
 
 	\Monolog\Logger::class => function (ContainerInterface $container) {
 		$log = new Monolog\Logger($container->get('app_name'));
@@ -42,7 +45,7 @@ return [
 		return $translator;
 	},
 
-	\Slim\Views\Twig::class => function ($container, \Symfony\Component\Translation\Translator $translator) {
+	\Slim\Views\Twig::class => function (\DI\Container $container, \Symfony\Component\Translation\Translator $translator) {
 		$dir = dirname(dirname(__DIR__));
 		$view = new \Slim\Views\Twig($dir . '/App/views', $container->get('twig'));
 		$twig = $view->getEnvironment();

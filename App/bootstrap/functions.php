@@ -27,12 +27,12 @@ function di($value = 'Die and Debug ! ;)')
 
 function debug($value = 'Die and Debug ! ;)')
 {
-	return dd($value);
+	return di($value);
 }
 
 function d($value = 'Die and Debug ! ;)')
 {
-	return dd($value);
+	return di($value);
 }
 
 /*

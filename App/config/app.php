@@ -7,7 +7,7 @@ return [
 		'level' => getenv('LOG_LEVEL'),
 		'discord' => getenv('LOG_DISCORD'),
 		'discord_webhooks' => [
-			'https://discordapp.com/api/webhooks/349907239303249930/QDPTQxUjaiD3wTrGH14eYa2jyVmdmxG1UNjaOAgP_lmqMEV_-KSq5kt7TG9A5A8GEO10'
+			getenv('LOG_DISCORD_WH')
 		],
 		'path' => getenv('LOG_PATH')
 	],

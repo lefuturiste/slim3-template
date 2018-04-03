@@ -16,7 +16,7 @@
 /**
  * Source directory of sass
  */
-var sass_src_dir = "src/sass"
+var sass_src_dir = "assets/sass"
 
 /**
  * Output directory of sass
@@ -33,7 +33,7 @@ var sass_output_style = "compressed"
 /**
  * Source directory of js scripts
  */
-var scripts_src_dir = "src/js/*.js"
+var scripts_src_dir = "assets/js/*.js"
 
 /**
  * Output directory of scripts
@@ -70,7 +70,7 @@ gulp.task('sass', function () {
  */
 gulp.task('sass:watch', function () {
     livereload.listen();
-    gulp.watch('src/sass/**/*.scss', ['sass']);
+    gulp.watch('assets/sass/**/*.scss', ['sass']);
 });
 
 /**
