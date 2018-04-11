@@ -26,11 +26,11 @@
         "symfony/console": "^3.3",
         "symfony/translation": "^3.3",
         "symfony/twig-bridge": "^3.3",
-        "lefuturiste/slim-whoops": "^0.6.2",
         "lefuturiste/monolog-discord-handler": "^0.1.2",
         "tracy/tracy": "^2.4",
         "php-di/php-di": "^5.4",
         "lefuturiste/Slim-Bridge": "^1.0.5",
-        "doctrine/cache": "^1.7"
+        "doctrine/cache": "^1.7",
+        "lefuturiste/slim-whoops": "^0.6.2"
     }
 }

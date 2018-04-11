@@ -13,8 +13,10 @@
 | Must be APP_DEBUG = true
 |--------------------------------------------------------------------------
 */
+use Zeuxisoo\Whoops\Provider\Slim\WhoopsGuard;
+
 if (getenv('APP_DEBUG')){
-	$whoopsGuard = new \Zeuxisoo\Whoops\Provider\Slim\WhoopsGuard();
+	$whoopsGuard = new WhoopsGuard();
 	$whoopsGuard->setApp($app);
 	$whoopsGuard->setRequest($container->get('request'));
 	$whoopsGuard->setHandlers([]);

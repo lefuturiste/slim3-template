@@ -13,6 +13,9 @@ log
 #.env
 .env
 
+#.htaccess
+.htaccess
+
 # User-specific stuff:
 .idea/workspace.xml
 .idea/tasks.xml
