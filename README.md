@@ -8,6 +8,8 @@ Just run a:
 
 `composer create-project lefuturiste/slim3-template`
 
+Create a `.env` file in the root directory and fill it with env vars fields (you can get the list of the fields in `.env.example`)
+
 ## The console
 
 This template include console powered by symfony console:
